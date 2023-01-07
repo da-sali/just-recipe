@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Web GPT API Example</title>
+  </head>
+  <body>
+    <!-- Load the necessary libraries -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/openai@2.0.0/dist/openai.min.js"></script>
+
+    <!-- Set your API key -->
+    <script>
+      openai.apiKey = "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";
+    </script>
+
+    <!-- Display the prompt and generated response in a paragraph element -->
+    <p id="response"></p>
+
+    <!-- Use JavaScript to make a request to the web GPT API and display the response -->
+    <script>
+      const prompt = "What is the weather like today?";
+
+      openai.prompt(prompt, {
+        model: "text-davinci-002",
+        temperature: 0.7
+      }).then(response => {
+        document.getElementById("response").innerHTML = response.data.choices[0].text;
+      });
+    </script>
+  </body>
+</html>
